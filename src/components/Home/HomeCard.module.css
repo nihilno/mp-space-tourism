@@ -21,6 +21,7 @@
   font-size: var(--size-10xl);
   color: hsl(var(--clr-white));
   line-height: 1.4;
+  font-weight: 600;
 
   @media (max-width: 475px) {
     font-size: var(--size-7xl);

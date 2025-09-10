@@ -1,13 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { MenuProvider } from "./contexts/MenuContext";
-
-import Home from "./pages/Home";
-import Destination from "./pages/Destination";
-import Crew from "./pages/Crew";
-import Technology from "./pages/Technology";
-import AudioPlayer from "./components/AudioPlayer";
-
 import "./assets/styles/global.css";
+
+import AudioPlayer from "./components/AudioPlayer";
+import PageNotFound from "./components/PageNotFound";
+import SpinnerFullPage from "./components/SpinnerFullPage";
+
+const Home = lazy(() => import("./pages/Home"));
+const Destination = lazy(() => import("./pages/Destination"));
+const Crew = lazy(() => import("./pages/Crew"));
+const Technology = lazy(() => import("./pages/Technology"));
 
 export default function App() {
   return (
@@ -15,13 +18,15 @@ export default function App() {
       <MenuProvider>
         <AudioPlayer />
         <BrowserRouter>
-          <Routes>
-            <Route index element={<Home />}></Route>
-            <Route path="destination" element={<Destination />}></Route>
-            <Route path="crew" element={<Crew />}></Route>
-            <Route path="technology" element={<Technology />}></Route>
-            <Route path="*" element={<p>Page not found</p>}></Route>
-          </Routes>
+          <Suspense fallback={<SpinnerFullPage />}>
+            <Routes>
+              <Route index element={<Home />}></Route>
+              <Route path="destination" element={<Destination />}></Route>
+              <Route path="crew" element={<Crew />}></Route>
+              <Route path="technology" element={<Technology />}></Route>
+              <Route path="*" element={<PageNotFound />}></Route>
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </MenuProvider>
     </>

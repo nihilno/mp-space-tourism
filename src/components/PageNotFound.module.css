@@ -1,0 +1,68 @@
+.page {
+  min-height: 100vh;
+  background: url("../assets/images/shared/page-not-found.jpg") no-repeat
+    center/cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  gap: 4rem;
+  padding: 1rem;
+}
+
+.image {
+  max-width: 300px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content > h1 {
+  font-size: var(--size-6xl);
+  font-weight: 700;
+
+  @media (max-width: 475px) {
+    font-size: var(--size-5xl);
+  }
+}
+
+.content > h2 {
+  font-size: var(--size-4xl);
+  font-weight: 600;
+
+  @media (max-width: 475px) {
+    font-size: var(--size-3xl);
+  }
+}
+
+/* button */
+.button {
+  font-family: var(--font-regular);
+  letter-spacing: var(--spacing-2);
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  text-transform: uppercase;
+  font-size: var(--size-2xl);
+
+  border: none;
+  outline: none;
+
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 500ms ease-out;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 55px 20px hsl(var(--clr-white) / 0.25);
+}
