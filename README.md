@@ -2,4 +2,4 @@
 
 ## Space Tourism App
 
-SPA application. The application contains information about the direction of the expedition, the crew, and the technologies used. The application integrates a music player. In addition, the application features smooth animations and styles.
+A Single Page Application (SPA) that showcases detailed information about an expedition, including its direction, crew members, and the technologies utilized. The application integrates a fully functional music player. It features smooth animations, elegant transitions, and polished custom styles—all crafted without any UI libraries. I also made it responsive.
